@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --apus: #49cee1;
+  --ink: #0a0a0a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-ink antialiased;
+  font-feature-settings: "ss01", "cv11";
+}
+
+::selection {
+  background: #49cee1;
+  color: #0a0a0a;
+}
+
+/* Small-caps eyebrow label, Ynora-style */
+.eyebrow {
+  @apply text-[11px] font-semibold uppercase tracking-[0.22em] text-neutral-500;
+}
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: #49cee1;
+  margin-right: 8px;
+  vertical-align: 1px;
+}
+
+/* Highlight chip inside giant headlines */
+.hl {
+  background: #49cee1;
+  color: #0a0a0a;
+  padding: 0 0.12em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+input, textarea, select {
+  @apply outline-none;
+}
+input:focus, textarea:focus, select:focus {
+  border-color: #49cee1 !important;
+  box-shadow: 0 0 0 3px rgba(73, 206, 225, 0.25);
+}
