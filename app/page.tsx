@@ -39,11 +39,11 @@ export default async function HomePage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
 
-      {/* Hero: full screen, VIREX style. Giant APUS watermark, copy left, cutout character right, nothing covering the text. */}
+      {/* Hero: full screen, VIREX style. Giant APUS INDUSTRIES watermark, copy left, cutout character right, nothing covering the text. */}
       <section className="relative flex min-h-[100svh] flex-col overflow-hidden bg-white">
         {/* Giant watermark, brand only */}
-        <p aria-hidden="true" className="hero-mark pointer-events-none absolute -bottom-[0.08em] left-0 right-0 select-none whitespace-nowrap text-center font-display text-[24vw] font-black leading-none tracking-tight text-neutral-100 lg:text-[260px]">
-          APUS
+        <p aria-hidden="true" className="hero-mark pointer-events-none absolute -bottom-[0.08em] left-0 right-0 select-none whitespace-nowrap text-center font-display text-[11vw] font-black leading-none tracking-tight text-neutral-100 lg:text-[130px]">
+          APUS INDUSTRIES
         </p>
         <div className="relative z-10 mx-auto grid w-full max-w-shell flex-1 lg:grid-cols-12">
           {/* Left copy */}
