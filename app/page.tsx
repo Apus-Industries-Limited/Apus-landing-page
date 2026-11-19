@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, ArrowUpRight, CheckCircle2, Instagram, Linkedin, Twitter } from "lucide-react";
 import { getSettings } from "@/lib/settings";
 import { getServices, getProjects, getTestimonials, getPartners } from "@/lib/data";
 import { ServiceCard, ProjectCard, TestimonialCard } from "@/components/site/Cards";
@@ -39,35 +39,62 @@ export default async function HomePage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
 
-      {/* Hero — Ynora-style giant editorial headline, Apus cyan accent */}
-      <section className="relative overflow-hidden bg-mist">
-        <div className="mx-auto max-w-shell px-4 pb-16 pt-16 sm:px-6 sm:pt-20 lg:px-8">
-          <div className="flex flex-wrap items-start justify-between gap-4">
-            <p className="eyebrow">Software · Electrical · Solar · Infrastructure</p>
-            <p className="hidden max-w-[220px] text-right text-xs leading-relaxed text-neutral-500 sm:block">
-              Technology &amp; engineering for businesses that need systems that work.
-            </p>
-          </div>
-          <h1 className="mt-6 font-display text-[13vw] font-black leading-[0.95] tracking-tight sm:text-7xl lg:text-[88px]">
-            {first} <span className="hl">{rest}</span>
-          </h1>
-          <div className="mt-8 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-            <p className="max-w-xl text-base leading-relaxed text-neutral-600 sm:text-lg">{settings.heroDescription}</p>
-            <div className="flex flex-wrap gap-3">
-              <Link href="/services" className="inline-flex items-center gap-2 rounded-full bg-apus px-6 py-3 text-sm font-semibold text-ink transition hover:bg-ink hover:text-white">
-                {settings.heroPrimaryCta} <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link href="/contact" className="inline-flex items-center gap-2 rounded-full border border-ink px-6 py-3 text-sm font-semibold transition hover:bg-ink hover:text-white">
-                {settings.heroSecondaryCta}
+      {/* Hero — VIREX-style product card: white rounded card, giant watermark, person right, Apus cyan */}
+      <section className="bg-mist px-4 pb-16 pt-8 sm:px-6 lg:px-8 lg:pt-10">
+        <div className="relative mx-auto max-w-shell overflow-hidden rounded-[2rem] bg-white shadow-[0_24px_60px_-24px_rgba(0,0,0,0.25)]">
+          {/* Giant watermark */}
+          <p aria-hidden="true" className="pointer-events-none absolute left-0 right-0 top-6 select-none whitespace-nowrap text-center font-display text-[13vw] font-black leading-none tracking-tight text-neutral-100 lg:text-[110px]">
+            APUS ENGINE
+          </p>
+          <div className="relative grid lg:grid-cols-12">
+            {/* Left copy */}
+            <div className="flex flex-col justify-center px-6 pb-10 pt-24 sm:px-10 sm:pt-28 lg:col-span-7 lg:px-12 lg:pb-14 lg:pt-32">
+              <p className="eyebrow">Software · Electrical · Solar · Infrastructure</p>
+              <h1 className="mt-5 font-display text-4xl font-black capitalize leading-[1.05] tracking-tight sm:text-5xl lg:text-[56px]">
+                {first} <span className="hl">{rest}</span>
+              </h1>
+              <p className="mt-5 max-w-md text-base leading-relaxed text-neutral-600 sm:text-lg">{settings.heroDescription}</p>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <Link href="/services" className="inline-flex items-center gap-2 rounded-full bg-apus px-7 py-3.5 text-sm font-semibold text-ink shadow-[0_10px_24px_-8px_rgba(73,206,225,0.8)] transition hover:bg-ink hover:text-white">
+                  {settings.heroPrimaryCta} <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link href="/contact" className="inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-apus-deep">
+                  {settings.heroSecondaryCta}
+                </Link>
+              </div>
+              {/* Bottom-left mini strip — real link to the Solar service */}
+              <Link href="/services/solar-and-energy-solutions" className="group mt-10 flex max-w-md items-center gap-4">
+                <span className="relative h-16 w-28 shrink-0 overflow-hidden rounded-lg">
+                  <Image src="/images/solar.jpg" alt="Solar installation by Apus Industries" fill className="object-cover transition group-hover:scale-105" />
+                </span>
+                <span className="text-xs leading-relaxed text-neutral-500">
+                  Apus blends software, electrical and solar — delivered as one system. <span className="font-semibold text-ink group-hover:text-apus-deep">See Solar &amp; Energy →</span>
+                </span>
               </Link>
             </div>
-          </div>
-          <div className="relative mt-12 overflow-hidden rounded-2xl bg-ink">
-            <Image src={settings.heroImage || "/images/hero.jpg"} alt="Apus Industries at work — engineers, solar design and software" width={1280} height={560} className="h-[320px] w-full object-cover sm:h-[420px]" priority />
-            <div className="absolute bottom-4 left-4 flex flex-wrap gap-2">
-              {["Software Development", "Electrical & Electronics", "Solar & Energy"].map((t) => (
-                <span key={t} className="rounded-full bg-white/90 px-3 py-1.5 text-xs font-semibold">{t}</span>
-              ))}
+            {/* Right figure */}
+            <div className="relative min-h-[380px] lg:col-span-5 lg:min-h-[560px]">
+              <Image src={settings.heroImage || "/images/hero-person.jpg"} alt="Apus engineer wearing cyan AR smart glasses" fill className="object-cover object-top" priority />
+              {/* Social rail */}
+              <div className="absolute right-4 top-1/3 hidden flex-col items-center gap-1 rounded-full bg-white/90 p-1.5 shadow-lg backdrop-blur lg:flex">
+                {[
+                  { href: settings.socials.x, label: "Apus Industries on X", Icon: Twitter },
+                  { href: settings.socials.instagram, label: "Apus Industries on Instagram", Icon: Instagram },
+                  { href: settings.socials.linkedin, label: "Apus Industries on LinkedIn", Icon: Linkedin },
+                ].filter((s) => s.href).map(({ href, label, Icon }, i) => (
+                  <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label} className={`flex h-9 w-9 items-center justify-center rounded-full transition hover:bg-apus ${i === 0 ? "bg-apus text-ink" : "text-ink"}`}>
+                    <Icon className="h-4 w-4" />
+                  </a>
+                ))}
+              </div>
+              {/* Mini card */}
+              <div className="absolute bottom-4 right-4 hidden w-[210px] rounded-2xl bg-white/95 p-3 shadow-xl backdrop-blur md:block">
+                <p className="font-display text-sm font-bold">Apus Engine</p>
+                <p className="mt-0.5 text-[11px] leading-snug text-neutral-500">Powering a new way to build and run your business.</p>
+                <div className="relative mt-2 h-16 overflow-hidden rounded-lg">
+                  <Image src="/images/infrastructure.jpg" alt="Apus digital infrastructure" fill className="object-cover" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
