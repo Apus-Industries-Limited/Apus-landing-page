@@ -20,7 +20,7 @@ export async function requireAdmin(allowed: Role[] = ["super_admin", "admin", "c
   const session = await auth();
   const user = session?.user as SessionUser | undefined;
   if (!user?.id) return { error: fail("Unauthorized", 401) };
-  if (!allowed.includes(user.role)) return { error: fail("Forbidden — your role cannot perform this action.", 403) };
+  if (!allowed.includes(user.role)) return { error: fail("Forbidden. Your role cannot perform this action.", 403) };
   return { user };
 }
 

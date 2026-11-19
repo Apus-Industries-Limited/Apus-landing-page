@@ -32,7 +32,7 @@ export default async function AdminInquiriesPage({ searchParams }: { searchParam
       </form>
       <div className="mt-6">
         {items.length === 0 ? (
-          <EmptyState title="No inquiries yet" text="New contact-form submissions will appear here with a reference number (APUS-YYYY-XXXX)." />
+          <EmptyState title="No inquiries yet" text="New contact form submissions will appear here with a reference number (APUS-YYYY-XXXX)." />
         ) : (
           <div className="overflow-x-auto rounded-2xl border border-line bg-white">
             <table className="w-full min-w-[640px] text-left text-sm">

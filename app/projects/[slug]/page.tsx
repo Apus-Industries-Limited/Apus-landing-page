@@ -62,7 +62,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
               <div className="mt-10 grid grid-cols-2 gap-3">
                 {project.gallery.map((src) => (
                   <div key={src} className="relative aspect-[4/3] overflow-hidden rounded-xl">
-                    <Image src={src} alt={`${project.name} — gallery image`} fill className="object-cover" />
+                    <Image src={src} alt={`${project.name}: gallery image`} fill className="object-cover" />
                   </div>
                 ))}
               </div>

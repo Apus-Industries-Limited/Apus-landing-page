@@ -28,7 +28,7 @@ export default async function ServicesPage() {
           </div>
         </div>
       </section>
-      <CtaBand title="Not sure which service fits?" text="Describe your project and we will point you to the right service — or a combination of them." />
+      <CtaBand title="Not sure which service fits?" text="Describe your project and we will point you to the right service, or a combination of them." />
     </>
   );
 }

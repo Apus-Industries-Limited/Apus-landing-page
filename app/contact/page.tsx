@@ -21,7 +21,7 @@ export default async function ContactPage() {
             Let&apos;s talk about <span className="hl">your project.</span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-neutral-600">
-            Tell us what you need — software, electrical work, solar, or a full technology setup — and we will come back with a clear plan.
+            Tell us what you need: software, electrical work, solar, or a full technology setup. We will come back with a clear plan.
           </p>
         </div>
       </section>
@@ -42,7 +42,7 @@ export default async function ContactPage() {
                 <li className="flex items-start gap-3"><Mail className="mt-0.5 h-5 w-5 shrink-0 text-apus-deep" /><span><span className="block text-xs uppercase tracking-wider text-neutral-500">Email</span><a href={`mailto:${settings.email}`} className="font-semibold hover:text-apus-deep">{settings.email}</a></span></li>
                 <li className="flex items-start gap-3"><Phone className="mt-0.5 h-5 w-5 shrink-0 text-apus-deep" /><span><span className="block text-xs uppercase tracking-wider text-neutral-500">Phone</span><a href={`tel:${settings.phone.replace(/\s/g, "")}`} className="font-semibold hover:text-apus-deep">{settings.phone}</a></span></li>
                 <li className="flex items-start gap-3"><Clock className="mt-0.5 h-5 w-5 shrink-0 text-apus-deep" /><span><span className="block text-xs uppercase tracking-wider text-neutral-500">Business hours</span><span className="font-semibold">{settings.businessHours}</span></span></li>
-                <li className="flex items-start gap-3"><MapPin className="mt-0.5 h-5 w-5 shrink-0 text-apus-deep" /><span><span className="block text-xs uppercase tracking-wider text-neutral-500">Office</span><span className="font-semibold">{settings.address || "Office address — update in Admin → Settings."}</span></span></li>
+                <li className="flex items-start gap-3"><MapPin className="mt-0.5 h-5 w-5 shrink-0 text-apus-deep" /><span><span className="block text-xs uppercase tracking-wider text-neutral-500">Office</span><span className="font-semibold">{settings.address || "Office address. Update it in Admin, under Settings."}</span></span></li>
               </ul>
             </div>
             <div className="rounded-2xl bg-ink p-6 text-white">

@@ -17,7 +17,7 @@ export async function connectDB(): Promise<typeof mongoose | null> {
   if (cached.conn) return cached.conn;
   if (!MONGODB_URI) {
     if (process.env.NODE_ENV !== "production") {
-      console.warn("[db] MONGODB_URI is not set — running without a database (fallbacks active).");
+      console.warn("[db] MONGODB_URI is not set. Running without a database (fallbacks active).");
     }
     return null;
   }

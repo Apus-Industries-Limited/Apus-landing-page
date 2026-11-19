@@ -47,7 +47,7 @@ export default async function AdminShell({ children }: { children: React.ReactNo
               <Image src="/logos/apus-logo-light.png" alt="Apus Industries Ltd" width={72} height={48} className="h-7 w-auto" />
               <span className="text-sm font-bold">Admin</span>
             </Link>
-            <span className="hidden text-sm font-semibold text-neutral-600 md:block">Apus Industries — Admin CRM / CMS</span>
+            <span className="hidden text-sm font-semibold text-neutral-600 md:block">Apus Industries: Admin CRM and CMS</span>
             <div className="flex items-center gap-3">
               <Link href="/" target="_blank" className="text-sm font-medium text-neutral-600 hover:text-ink">View site</Link>
               <form action={async () => { "use server"; await signOut({ redirectTo: "/admin/login" }); }}>

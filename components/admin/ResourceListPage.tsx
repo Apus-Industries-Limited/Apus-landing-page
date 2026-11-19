@@ -8,10 +8,10 @@ export type ColumnDef = { key: string; label: string };
 
 function cellValue(item: Record<string, unknown>, key: string): string {
   const v = item[key];
-  if (v == null) return "—";
+  if (v == null) return "Not set";
   if (typeof v === "boolean") return v ? "Yes" : "No";
-  if (Array.isArray(v)) return v.join(", ") || "—";
-  if (typeof v === "object") return "—";
+  if (Array.isArray(v)) return v.join(", ") || "Not set";
+  if (typeof v === "object") return "Not set";
   const s = String(v);
   return s.length > 80 ? `${s.slice(0, 80)}…` : s;
 }

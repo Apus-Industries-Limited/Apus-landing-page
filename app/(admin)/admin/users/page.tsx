@@ -10,9 +10,9 @@ const FIELDS: FieldDef[] = [
   { name: "email", label: "Email", type: "email" },
   { name: "password", label: "Password", type: "text", help: "Required when creating a user (min 8 characters). Leave blank when editing to keep the current password." },
   { name: "role", label: "Role", type: "select", options: [
-    { value: "super_admin", label: "Super Admin — full access" },
-    { value: "admin", label: "Administrator — content + inquiries + settings" },
-    { value: "content_manager", label: "Content Manager — website content only" },
+    { value: "super_admin", label: "Super Admin: full access" },
+    { value: "admin", label: "Administrator: content, inquiries and settings" },
+    { value: "content_manager", label: "Content Manager: website content only" },
   ] },
   { name: "active", label: "Active (can sign in)", type: "checkbox" },
 ];

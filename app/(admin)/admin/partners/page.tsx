@@ -16,7 +16,7 @@ export default async function AdminPartnersPage() {
   const items = await adminList(() => Partner.find({ deletedAt: null }).sort({ order: 1 }).lean());
   return (
     <ResourceListPage
-      title="Partners" description="Trusted partners shown on the homepage. Only real, approved partners — add a logo and website for each."
+      title="Partners" description="Trusted partners shown on the homepage. Only real, approved partners. Add a logo and website for each."
       apiPath="/api/admin/partners" fields={FIELDS}
       columns={[{ key: "website", label: "Website" }, { key: "description", label: "Description" }]}
       items={items as unknown as Record<string, unknown>[]}

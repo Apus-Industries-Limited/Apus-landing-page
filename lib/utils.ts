@@ -40,8 +40,8 @@ export function siteUrl(): string {
 }
 
 export function formatDate(date: string | Date | undefined | null): string {
-  if (!date) return "—";
+  if (!date) return "Not set";
   const d = new Date(date);
-  if (Number.isNaN(d.getTime())) return "—";
+  if (Number.isNaN(d.getTime())) return "Not set";
   return d.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
 }

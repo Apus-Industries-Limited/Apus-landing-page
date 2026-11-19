@@ -34,7 +34,7 @@ export default async function AdminDashboard() {
         <div className="mt-6 rounded-2xl border border-amber-300 bg-amber-50 p-6">
           <p className="font-semibold">Database not connected</p>
           <p className="mt-2 text-sm leading-relaxed text-neutral-600">
-            Set <code>MONGODB_URI</code> in <code>.env.local</code> (copy from <code>.env.example</code>) and run <code>npm run seed</code> to create the settings, services and admin user. The public site still renders with built-in fallbacks.
+            Set <code>MONGODB_URI</code> in <code>.env.local</code> (copy from <code>.env.example</code>) and run <code>npm run seed</code> to create the settings, services and admin user. The public site still renders with fallbacks built in.
           </p>
         </div>
       </div>
@@ -66,13 +66,13 @@ export default async function AdminDashboard() {
         <section className="rounded-2xl border border-line bg-white p-5">
           <h2 className="font-display text-lg font-bold">Recent inquiries</h2>
           {data.recentInquiries.length === 0 ? (
-            <p className="mt-3 text-sm text-neutral-500">No inquiries yet. New contact-form submissions will appear here.</p>
+            <p className="mt-3 text-sm text-neutral-500">No inquiries yet. New contact form submissions will appear here.</p>
           ) : (
             <ul className="mt-4 divide-y divide-line">
               {data.recentInquiries.map((i) => (
                 <li key={String(i._id)} className="flex items-center justify-between gap-3 py-3">
                   <Link href={`/admin/inquiries/${String(i._id)}`} className="min-w-0">
-                    <span className="block truncate font-semibold">{String(i.name)} — {String(i.subject)}</span>
+                    <span className="block truncate font-semibold">{String(i.name)}: {String(i.subject)}</span>
                     <span className="text-xs text-neutral-500">{String(i.reference)} · {formatDate(i.createdAt as unknown as string)}</span>
                   </Link>
                   <StatusBadge value={String(i.status)} />
@@ -103,7 +103,7 @@ export default async function AdminDashboard() {
         </section>
       </div>
       <p className="mt-8 text-xs text-neutral-400">
-        Services are seeded from the brief (5 categories). Team, projects, testimonials and partners start empty — add them here; nothing is invented on the public site.
+        Services are seeded from the brief (5 categories). Team, projects, testimonials and partners start empty. Add them here. Nothing is invented on the public site.
       </p>
     </div>
   );

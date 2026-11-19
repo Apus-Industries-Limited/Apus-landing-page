@@ -21,7 +21,7 @@ export default async function AdminTestimonialsPage() {
   const items = await adminList(() => Testimonial.find({ deletedAt: null }).sort({ order: 1, updatedAt: -1 }).lean());
   return (
     <ResourceListPage
-      title="Testimonials" description="Client testimonials. Approve and publish only genuine testimonials supplied by real clients — never invent them."
+      title="Testimonials" description="Client testimonials. Approve and publish only genuine testimonials supplied by real clients. Never invent them."
       apiPath="/api/admin/testimonials" fields={FIELDS}
       columns={[{ key: "company", label: "Company" }, { key: "position", label: "Position" }, { key: "quote", label: "Testimonial" }]}
       items={items as unknown as Record<string, unknown>[]}

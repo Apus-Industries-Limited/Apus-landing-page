@@ -72,7 +72,7 @@ export default function InquiryDetail({
 
           <section className="rounded-2xl border border-line bg-white p-5">
             <h2 className="font-display text-lg font-bold">Internal notes</h2>
-            <p className="text-xs text-neutral-500">Private — never shown on the public site.</p>
+            <p className="text-xs text-neutral-500">Private. Never shown on the public site.</p>
             {notes.length === 0 ? <p className="mt-3 text-sm text-neutral-500">No notes yet.</p> : (
               <ul className="mt-4 space-y-3">
                 {notes.map((n) => (
@@ -95,7 +95,7 @@ export default function InquiryDetail({
               <ul className="mt-4 space-y-2 text-sm">
                 {activity.map((a) => (
                   <li key={a._id} className="flex justify-between gap-3 border-b border-line pb-2 last:border-0">
-                    <span>{a.action}{a.detail ? ` — ${a.detail}` : ""} <span className="text-neutral-500">({a.actor?.name ?? "System"})</span></span>
+                    <span>{a.action}{a.detail ? `: ${a.detail}` : ""} <span className="text-neutral-500">({a.actor?.name ?? "System"})</span></span>
                     <span className="shrink-0 text-xs text-neutral-500">{formatDate(a.createdAt)}</span>
                   </li>
                 ))}

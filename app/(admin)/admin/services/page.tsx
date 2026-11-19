@@ -14,8 +14,8 @@ const FIELDS: FieldDef[] = [
     { value: "Server", label: "Server (infrastructure)" }, { value: "Cpu", label: "CPU (general)" },
   ] },
   { name: "coverImage", label: "Cover image URL", type: "url", help: "Paste a Media Library URL, or leave blank." },
-  { name: "benefits", label: "Benefits (comma-separated)", type: "tags" },
-  { name: "features", label: "Features / capabilities (comma-separated)", type: "tags" },
+  { name: "benefits", label: "Benefits (separated by commas)", type: "tags" },
+  { name: "features", label: "Features / capabilities (separated by commas)", type: "tags" },
   { name: "order", label: "Display order", type: "number" },
   { name: "featured", label: "Featured on the homepage", type: "checkbox" },
   { name: "active", label: "Active (visible on the site)", type: "checkbox" },
@@ -25,7 +25,7 @@ export default async function AdminServicesPage() {
   const items = await adminList(() => Service.find({}).sort({ order: 1 }).lean());
   return (
     <ResourceListPage
-      title="Services" description="Services shown on the homepage and Services pages. The five categories from the brief are seeded; edit them here — never hardcode them in code."
+      title="Services" description="Services shown on the homepage and Services pages. The five categories from the brief are seeded. Edit them here. Never hardcode them in code."
       apiPath="/api/admin/services" fields={FIELDS}
       columns={[{ key: "slug", label: "Slug" }, { key: "shortDescription", label: "Short description" }, { key: "order", label: "Order" }]}
       items={items as unknown as Record<string, unknown>[]}

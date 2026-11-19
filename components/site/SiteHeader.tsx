@@ -15,7 +15,7 @@ export async function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-white/90 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-shell items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-3" aria-label="Apus Industries Ltd — home">
+        <Link href="/" className="flex items-center gap-3" aria-label="Apus Industries Ltd, home">
           <Image src="/logos/apus-logo-light.png" alt="Apus Industries Ltd" width={96} height={64} className="h-9 w-auto" priority />
           <span className="hidden text-[15px] font-bold tracking-tight sm:block">
             Apus Industries <span className="font-medium text-neutral-500">Ltd</span>

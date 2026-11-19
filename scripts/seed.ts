@@ -21,7 +21,7 @@ async function main() {
     { ...DEFAULT_SETTINGS, singleton: "main" },
     { upsert: true, new: true, setDefaultsOnInsert: true }
   );
-  console.log("✓ Website settings upserted (apusindustries1@gmail.com, +2349029566770, 9–5 Mon–Fri, @apusindustries).");
+  console.log("✓ Website settings upserted (apusindustries1@gmail.com, +2349029566770, 9am to 5pm, Monday to Friday, @apusindustries).");
 
   // 2. The five service categories from the brief (the only seeded content).
   for (const s of SEEDED_SERVICES) {
@@ -49,7 +49,7 @@ async function main() {
   const password = process.env.ADMIN_SEED_PASSWORD;
   const name = process.env.ADMIN_SEED_NAME || "Apus Admin";
   if (!email || !password) {
-    console.warn("⚠ ADMIN_SEED_EMAIL / ADMIN_SEED_PASSWORD are not set — no admin user was created.");
+    console.warn("⚠ ADMIN_SEED_EMAIL / ADMIN_SEED_PASSWORD are not set. No admin user was created.");
     console.warn("  Set them in .env.local and re-run `npm run seed`, or create the first admin in MongoDB directly.");
   } else {
     if (password.length < 8) {

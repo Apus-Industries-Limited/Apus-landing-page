@@ -58,7 +58,7 @@ export default function AdminLoginPage() {
         <div className="flex flex-col items-center text-center">
           <Image src="/logos/apus-logo-light.png" alt="Apus Industries Ltd" width={160} height={107} className="h-14 w-auto" />
           <h1 className="mt-5 font-display text-2xl font-bold">Admin sign in</h1>
-          <p className="mt-1 text-sm text-neutral-500">Apus Industries Ltd — CRM / CMS</p>
+          <p className="mt-1 text-sm text-neutral-500">Apus Industries Ltd: CRM and CMS</p>
         </div>
         <div className="mt-8">
           <Suspense fallback={<p className="text-sm text-neutral-500">Loading…</p>}>

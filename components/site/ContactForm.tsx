@@ -59,7 +59,7 @@ export default function ContactForm({ services }: { services: ServiceOption[] })
     return (
       <div className="rounded-2xl border border-apus bg-apus-pale p-8 text-center">
         <CheckCircle2 className="mx-auto h-10 w-10 text-apus-deep" />
-        <h2 className="mt-4 font-display text-2xl font-bold">Thank you — your message was received.</h2>
+        <h2 className="mt-4 font-display text-2xl font-bold">Thank you. Your message was received.</h2>
         <p className="mt-2 text-neutral-600">
           Your reference number is <strong className="text-ink">{reference}</strong>. Please keep it for your records.
           Our team will get back to you during business hours.

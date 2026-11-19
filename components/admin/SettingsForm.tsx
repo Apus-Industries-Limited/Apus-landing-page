@@ -12,7 +12,7 @@ const TEXT_FIELDS: { name: keyof SettingsShape; label: string; type?: "text" | "
   { name: "description", label: "Company description (homepage intro + About)", type: "textarea", rows: 4 },
   { name: "email", label: "Contact email", type: "email" },
   { name: "phone", label: "Phone number" },
-  { name: "address", label: "Office address", type: "textarea", rows: 2, help: "Leave blank until the office address is confirmed — the contact page will say so." },
+  { name: "address", label: "Office address", type: "textarea", rows: 2, help: "Leave blank until the office address is confirmed. The contact page will say so." },
   { name: "businessHours", label: "Business hours" },
   { name: "seoTitle", label: "Default SEO title" },
   { name: "seoDescription", label: "Default SEO description", type: "textarea", rows: 2 },
@@ -88,7 +88,7 @@ export default function SettingsForm({ initial }: { initial: SettingsShape }) {
       <div className="grid gap-5 sm:grid-cols-2">
         {(["x", "instagram", "linkedin", "facebook"] as const).map((key) => (
           <div key={key}>
-            <label htmlFor={`social-${key}`} className="mb-1.5 block text-sm font-semibold">Social — {key}</label>
+            <label htmlFor={`social-${key}`} className="mb-1.5 block text-sm font-semibold">Social: {key}</label>
             <input id={`social-${key}`} type="url" value={values[`socials.${key}`] ?? ""} onChange={(e) => setValues((p) => ({ ...p, [`socials.${key}`]: e.target.value }))} placeholder={`https://${key}.com/apusindustries`} className={inputCls} />
           </div>
         ))}

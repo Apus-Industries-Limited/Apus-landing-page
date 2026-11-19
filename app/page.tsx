@@ -10,7 +10,7 @@ import { siteUrl } from "@/lib/utils";
 export const revalidate = 60;
 
 function splitHeadline(headline: string): { first: string; rest: string } {
-  // Highlight the last two words with the cyan chip, Ynora-style.
+  // Highlight the last two words with the cyan chip, Ynora style.
   const words = headline.trim().split(/\s+/);
   if (words.length <= 2) return { first: "", rest: headline };
   return { first: words.slice(0, -2).join(" "), rest: words.slice(-2).join(" ") };
@@ -39,7 +39,7 @@ export default async function HomePage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
 
-      {/* Hero — VIREX-style product card: white rounded card, giant watermark, person right, Apus cyan */}
+      {/* Hero: VIREX style product card. White rounded card, giant watermark, person right, Apus cyan. */}
       <section className="bg-mist px-4 pb-16 pt-8 sm:px-6 lg:px-8 lg:pt-10">
         <div className="relative mx-auto max-w-shell overflow-hidden rounded-[2rem] bg-white shadow-[0_24px_60px_-24px_rgba(0,0,0,0.25)]">
           {/* Giant watermark */}
@@ -62,13 +62,13 @@ export default async function HomePage() {
                   {settings.heroSecondaryCta}
                 </Link>
               </div>
-              {/* Bottom-left mini strip — real link to the Solar service */}
+              {/* Bottom-left mini strip: real link to the Solar service */}
               <Link href="/services/solar-and-energy-solutions" className="group mt-10 flex max-w-md items-center gap-4">
                 <span className="relative h-16 w-28 shrink-0 overflow-hidden rounded-lg">
                   <Image src="/images/solar.jpg" alt="Solar installation by Apus Industries" fill className="object-cover transition group-hover:scale-105" />
                 </span>
                 <span className="text-xs leading-relaxed text-neutral-500">
-                  Apus blends software, electrical and solar — delivered as one system. <span className="font-semibold text-ink group-hover:text-apus-deep">See Solar &amp; Energy →</span>
+                  Apus blends software, electrical and solar, delivered as one system. <span className="font-semibold text-ink group-hover:text-apus-deep">See Solar &amp; Energy →</span>
                 </span>
               </Link>
             </div>
@@ -129,7 +129,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Featured projects — only published projects; empty state is honest, not invented */}
+      {/* Featured projects: only published projects. Empty state is honest, not invented. */}
       <section className="bg-white py-16 sm:py-20">
         <div className="mx-auto max-w-shell px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-end justify-between gap-4">
@@ -152,7 +152,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Why choose Apus — dark section */}
+      {/* Why choose Apus: dark section */}
       <section className="bg-ink py-16 text-white sm:py-20">
         <div className="mx-auto max-w-shell px-4 sm:px-6 lg:px-8">
           <SectionHeading dark eyebrow="Why choose Apus" title={<>Why businesses <span className="hl">choose Apus.</span></>} />
@@ -196,7 +196,7 @@ export default async function HomePage() {
         </section>
       )}
 
-      <CtaBand title="Have a project in mind?" text="Tell us what you need — software, electrical work, solar, or a full technology setup — and we will come back with a clear plan and a honest quote." />
+      <CtaBand title="Have a project in mind?" text="Tell us what you need: software, electrical work, solar, or a full technology setup. We will come back with a clear plan and an honest quote." />
     </>
   );
 }

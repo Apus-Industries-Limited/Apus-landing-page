@@ -86,7 +86,7 @@ export default async function AboutPage() {
             </div>
           ) : (
             <div className="mt-10 rounded-2xl border border-dashed border-line bg-smoke p-10 text-center">
-              <p className="font-display text-lg font-bold">Meet the team — coming soon</p>
+              <p className="font-display text-lg font-bold">Meet the team. Coming soon.</p>
               <p className="mx-auto mt-2 max-w-md text-sm text-neutral-600">
                 Team profiles are added by the company through the admin dashboard. Nothing is published here until the team adds it.
               </p>

@@ -34,7 +34,7 @@ export default function ForgotPasswordPage() {
           <div className="mt-6 space-y-4 text-sm leading-relaxed text-neutral-600">
             <p>If an account exists for that email, a reset link has been generated. It is valid for 1 hour.</p>
             <p className="rounded-xl bg-smoke p-4">
-              Email sending is not configured in this deployment (no SMTP env). A Super Admin can reset any password from Admin → Users, or the reset token is logged server-side — see README → Password reset.
+              Email sending is not configured in this deployment (no SMTP env). A Super Admin can reset any password from Admin → Users, or the reset token is logged on the server. See README, Password reset.
             </p>
             <Link href="/admin/login" className="inline-block font-semibold text-apus-deep">Back to sign in →</Link>
           </div>
