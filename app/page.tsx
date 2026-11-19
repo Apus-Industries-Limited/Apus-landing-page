@@ -39,61 +39,59 @@ export default async function HomePage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
 
-      {/* Hero: VIREX style product card. White rounded card, giant watermark, person right, Apus cyan. */}
-      <section className="bg-mist px-4 pb-16 pt-8 sm:px-6 lg:px-8 lg:pt-10">
-        <div className="relative mx-auto max-w-shell overflow-hidden rounded-[2rem] bg-white shadow-[0_24px_60px_-24px_rgba(0,0,0,0.25)]">
-          {/* Giant watermark */}
-          <p aria-hidden="true" className="pointer-events-none absolute left-0 right-0 top-6 select-none whitespace-nowrap text-center font-display text-[13vw] font-black leading-none tracking-tight text-neutral-100 lg:text-[110px]">
-            APUS ENGINE
-          </p>
-          <div className="relative grid lg:grid-cols-12">
-            {/* Left copy */}
-            <div className="flex flex-col justify-center px-6 pb-10 pt-24 sm:px-10 sm:pt-28 lg:col-span-7 lg:px-12 lg:pb-14 lg:pt-32">
-              <p className="eyebrow">Software · Electrical · Solar · Infrastructure</p>
-              <h1 className="mt-5 font-display text-4xl font-black capitalize leading-[1.05] tracking-tight sm:text-5xl lg:text-[56px]">
-                {first} <span className="hl">{rest}</span>
-              </h1>
-              <p className="mt-5 max-w-md text-base leading-relaxed text-neutral-600 sm:text-lg">{settings.heroDescription}</p>
-              <div className="mt-7 flex flex-wrap gap-3">
-                <Link href="/services" className="inline-flex items-center gap-2 rounded-full bg-apus px-7 py-3.5 text-sm font-semibold text-ink shadow-[0_10px_24px_-8px_rgba(73,206,225,0.8)] transition hover:bg-ink hover:text-white">
-                  {settings.heroPrimaryCta} <ArrowRight className="h-4 w-4" />
-                </Link>
-                <Link href="/contact" className="inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-apus-deep">
-                  {settings.heroSecondaryCta}
-                </Link>
-              </div>
-              {/* Bottom-left mini strip: real link to the Solar service */}
-              <Link href="/services/solar-and-energy-solutions" className="group mt-10 flex max-w-md items-center gap-4">
-                <span className="relative h-16 w-28 shrink-0 overflow-hidden rounded-lg">
-                  <Image src="/images/solar.jpg" alt="Solar installation by Apus Industries" fill className="object-cover transition group-hover:scale-105" />
-                </span>
-                <span className="text-xs leading-relaxed text-neutral-500">
-                  Apus blends software, electrical and solar, delivered as one system. <span className="font-semibold text-ink group-hover:text-apus-deep">See Solar &amp; Energy →</span>
-                </span>
+      {/* Hero: full screen, VIREX style. Giant APUS watermark, copy left, cutout character right, nothing covering the text. */}
+      <section className="relative flex min-h-[100svh] flex-col overflow-hidden bg-white">
+        {/* Giant watermark, brand only */}
+        <p aria-hidden="true" className="hero-mark pointer-events-none absolute -bottom-[0.08em] left-0 right-0 select-none whitespace-nowrap text-center font-display text-[24vw] font-black leading-none tracking-tight text-neutral-100 lg:text-[260px]">
+          APUS
+        </p>
+        <div className="relative z-10 mx-auto grid w-full max-w-shell flex-1 lg:grid-cols-12">
+          {/* Left copy */}
+          <div className="flex flex-col justify-center px-6 pb-12 pt-16 sm:px-10 lg:col-span-7 lg:px-12 lg:pb-16 lg:pt-20">
+            <p className="eyebrow hero-rise hero-d1">Software · Electrical · Solar · Infrastructure</p>
+            <h1 className="hero-rise hero-d2 mt-5 font-display text-4xl font-black capitalize leading-[1.05] tracking-tight sm:text-5xl lg:text-[56px]">
+              {first} <span className="hl">{rest}</span>
+            </h1>
+            <p className="hero-rise hero-d3 mt-5 max-w-md text-base leading-relaxed text-neutral-600 sm:text-lg">{settings.heroDescription}</p>
+            <div className="hero-rise hero-d4 mt-7 flex flex-wrap gap-3">
+              <Link href="/services" className="inline-flex items-center gap-2 rounded-full bg-apus px-7 py-3.5 text-sm font-semibold text-ink shadow-[0_10px_24px_-8px_rgba(73,206,225,0.8)] transition hover:bg-ink hover:text-white">
+                {settings.heroPrimaryCta} <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link href="/contact" className="inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-apus-deep">
+                {settings.heroSecondaryCta}
               </Link>
             </div>
-            {/* Right figure */}
-            <div className="relative min-h-[380px] lg:col-span-5 lg:min-h-[560px]">
-              <Image src={settings.heroImage || "/images/hero-person.jpg"} alt="Apus engineer wearing cyan AR smart glasses" fill className="object-cover object-top" priority />
-              {/* Social rail */}
-              <div className="absolute right-4 top-1/3 hidden flex-col items-center gap-1 rounded-full bg-white/90 p-1.5 shadow-lg backdrop-blur lg:flex">
-                {[
-                  { href: settings.socials.x, label: "Apus Industries on X", Icon: Twitter },
-                  { href: settings.socials.instagram, label: "Apus Industries on Instagram", Icon: Instagram },
-                  { href: settings.socials.linkedin, label: "Apus Industries on LinkedIn", Icon: Linkedin },
-                ].filter((s) => s.href).map(({ href, label, Icon }, i) => (
-                  <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label} className={`flex h-9 w-9 items-center justify-center rounded-full transition hover:bg-apus ${i === 0 ? "bg-apus text-ink" : "text-ink"}`}>
-                    <Icon className="h-4 w-4" />
-                  </a>
-                ))}
-              </div>
-              {/* Mini card */}
-              <div className="absolute bottom-4 right-4 hidden w-[210px] rounded-2xl bg-white/95 p-3 shadow-xl backdrop-blur md:block">
-                <p className="font-display text-sm font-bold">Apus Engine</p>
-                <p className="mt-0.5 text-[11px] leading-snug text-neutral-500">Powering a new way to build and run your business.</p>
-                <div className="relative mt-2 h-16 overflow-hidden rounded-lg">
-                  <Image src="/images/infrastructure.jpg" alt="Apus digital infrastructure" fill className="object-cover" />
-                </div>
+            {/* Bottom-left mini strip: real link to the Solar service */}
+            <Link href="/services/solar-and-energy-solutions" className="group hero-rise hero-d5 mt-12 flex max-w-md items-center gap-4">
+              <span className="relative h-16 w-28 shrink-0 overflow-hidden rounded-lg">
+                <Image src="/images/solar.jpg" alt="Solar installation by Apus Industries" fill className="object-cover transition group-hover:scale-105" />
+              </span>
+              <span className="text-xs leading-relaxed text-neutral-500">
+                Apus blends software, electrical and solar, delivered as one system. <span className="font-semibold text-ink group-hover:text-apus-deep">See Solar &amp; Energy →</span>
+              </span>
+            </Link>
+          </div>
+          {/* Right figure: cutout character, transparent background, standing full height */}
+          <div className="relative h-[62vh] lg:col-span-5 lg:h-auto lg:min-h-[100svh]">
+            {/* Soft cyan glow behind the character */}
+            <div aria-hidden="true" className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+              <div className="hero-glow h-[420px] w-[420px] rounded-full bg-apus/25 blur-3xl" />
+            </div>
+            <div className="hero-float absolute inset-0">
+              <Image src={settings.heroImage || "/images/hero-person.png"} alt="Apus engineer wearing cyan AR smart glasses" fill className="object-contain object-bottom" priority />
+            </div>
+            {/* Social rail */}
+            <div className="absolute right-4 top-1/2 hidden -translate-y-1/2 lg:block">
+              <div className="hero-rise hero-d6 flex flex-col items-center gap-1 rounded-full bg-white/90 p-1.5 shadow-lg backdrop-blur">
+              {[
+                { href: settings.socials.x, label: "Apus Industries on X", Icon: Twitter },
+                { href: settings.socials.instagram, label: "Apus Industries on Instagram", Icon: Instagram },
+                { href: settings.socials.linkedin, label: "Apus Industries on LinkedIn", Icon: Linkedin },
+              ].filter((s) => s.href).map(({ href, label, Icon }, i) => (
+                <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label} className={`flex h-9 w-9 items-center justify-center rounded-full transition hover:bg-apus ${i === 0 ? "bg-apus text-ink" : "text-ink"}`}>
+                  <Icon className="h-4 w-4" />
+                </a>
+              ))}
               </div>
             </div>
           </div>
