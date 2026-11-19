@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { getProjects } from "@/lib/data";
 import { ProjectCard } from "@/components/site/Cards";
 import { PROJECT_CATEGORIES } from "@/models/Project";
@@ -41,13 +42,18 @@ export default async function ProjectsPage({ searchParams }: { searchParams: Pro
               {projects.map((p) => <ProjectCard key={p.slug} project={p} />)}
             </div>
           ) : (
-            <div className="rounded-2xl border border-dashed border-line bg-smoke p-10 text-center">
-              <p className="font-display text-lg font-bold">No projects published yet</p>
-              <p className="mx-auto mt-2 max-w-md text-sm text-neutral-600">
-                Projects are published here by the Apus team through the admin dashboard as work is completed.
-              </p>
-              <Link href="/contact" className="mt-5 inline-block rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-white">Ask about recent work</Link>
-            </div>
+            <>
+              <div className="relative overflow-hidden rounded-2xl bg-ink">
+                <Image src="/images/infrastructure.jpg" alt="Apus Industries infrastructure work" width={1280} height={640} className="h-[240px] w-full object-cover sm:h-[320px]" />
+              </div>
+              <div className="mt-4 rounded-2xl border border-dashed border-line bg-smoke p-10 text-center">
+                <p className="font-display text-lg font-bold">No projects published yet</p>
+                <p className="mx-auto mt-2 max-w-md text-sm text-neutral-600">
+                  Projects are published here by the Apus team through the admin dashboard as work is completed.
+                </p>
+                <Link href="/contact" className="mt-5 inline-block rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-white">Ask about recent work</Link>
+              </div>
+            </>
           )}
         </div>
       </section>

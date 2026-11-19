@@ -61,6 +61,20 @@ export const SEEDED_SERVICES: ServiceItem[] = [
   },
 ];
 
+/** Default cover photos for the five service categories (public/images/).
+ * A CMS-set coverImage always wins; this is only the fallback when it is empty. */
+export const SERVICE_COVER_IMAGES: Record<string, string> = {
+  "software-development-and-digital-solutions": "/images/software.jpg",
+  "web-and-mobile-application-development": "/images/mobile.jpg",
+  "electrical-and-electronics-solutions": "/images/electrical.jpg",
+  "solar-and-energy-solutions": "/images/solar.jpg",
+  "digital-infrastructure-and-business-technology": "/images/infrastructure.jpg",
+};
+
+export function serviceCoverImage(service: Pick<ServiceItem, "slug" | "coverImage">): string {
+  return service.coverImage || SERVICE_COVER_IMAGES[service.slug] || "";
+}
+
 function toServiceItem(doc: Record<string, unknown>): ServiceItem {
   return {
     _id: String(doc._id), name: String(doc.name), slug: String(doc.slug),

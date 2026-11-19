@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight, Code2, Smartphone, Zap, Sun, Server, Cpu } from "lucide-react";
 import type { ServiceItem, ProjectItem, TestimonialItem } from "@/lib/data";
+import { serviceCoverImage } from "@/lib/data";
 
 const ICONS: Record<string, typeof Cpu> = { Code2, Smartphone, Zap, Sun, Server, Cpu };
 
@@ -11,16 +12,24 @@ export function ServiceIcon({ name, className = "h-6 w-6" }: { name: string; cla
 }
 
 export function ServiceCard({ service }: { service: ServiceItem }) {
+  const cover = serviceCoverImage(service);
   return (
-    <Link href={`/services/${service.slug}`} className="group flex flex-col rounded-2xl border border-line bg-white p-6 transition hover:-translate-y-1 hover:border-apus hover:shadow-lg">
-      <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-apus-pale text-apus-deep">
-        <ServiceIcon name={service.icon} />
-      </span>
-      <h3 className="mt-5 font-display text-lg font-bold leading-snug">{service.name}</h3>
-      <p className="mt-2 flex-1 text-sm leading-relaxed text-neutral-600">{service.shortDescription}</p>
-      <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-ink group-hover:text-apus-deep">
-        Learn more <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-      </span>
+    <Link href={`/services/${service.slug}`} className="group flex flex-col overflow-hidden rounded-2xl border border-line bg-white transition hover:-translate-y-1 hover:border-apus hover:shadow-lg">
+      {cover ? (
+        <div className="relative aspect-[16/10] bg-mist">
+          <Image src={cover} alt={service.name} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
+        </div>
+      ) : null}
+      <div className="flex flex-1 flex-col p-6">
+        <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-apus-pale text-apus-deep">
+          <ServiceIcon name={service.icon} />
+        </span>
+        <h3 className="mt-5 font-display text-lg font-bold leading-snug">{service.name}</h3>
+        <p className="mt-2 flex-1 text-sm leading-relaxed text-neutral-600">{service.shortDescription}</p>
+        <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-ink group-hover:text-apus-deep">
+          Learn more <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        </span>
+      </div>
     </Link>
   );
 }

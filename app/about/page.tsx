@@ -13,12 +13,17 @@ export default async function AboutPage() {
   return (
     <>
       <section className="bg-mist py-16 sm:py-20">
-        <div className="mx-auto max-w-shell px-4 sm:px-6 lg:px-8">
-          <p className="eyebrow">About Us</p>
-          <h1 className="mt-4 max-w-3xl font-display text-4xl font-black leading-[1.02] tracking-tight sm:text-6xl">
-            About <span className="hl">Apus Industries</span>
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-neutral-600">{settings.description}</p>
+        <div className="mx-auto grid max-w-shell items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+          <div>
+            <p className="eyebrow">About Us</p>
+            <h1 className="mt-4 max-w-3xl font-display text-4xl font-black leading-[1.02] tracking-tight sm:text-6xl">
+              About <span className="hl">Apus Industries</span>
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-neutral-600">{settings.description}</p>
+          </div>
+          <div className="relative overflow-hidden rounded-2xl bg-ink">
+            <Image src="/images/about.jpg" alt="The Apus Industries team at work" width={1280} height={854} className="h-[280px] w-full object-cover sm:h-[360px]" priority />
+          </div>
         </div>
       </section>
 

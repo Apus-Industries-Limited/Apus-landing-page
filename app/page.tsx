@@ -63,17 +63,7 @@ export default async function HomePage() {
             </div>
           </div>
           <div className="relative mt-12 overflow-hidden rounded-2xl bg-ink">
-            {settings.heroImage ? (
-              <Image src={settings.heroImage} alt="Apus Industries at work" width={1280} height={560} className="h-[320px] w-full object-cover sm:h-[420px]" priority />
-            ) : (
-              <div className="flex h-[320px] flex-col items-center justify-center gap-4 p-8 text-center sm:h-[420px]">
-                <Image src="/logos/apus-mark-cyan.png" alt="" width={120} height={80} className="h-16 w-auto opacity-90" />
-                <p className="max-w-md font-display text-2xl font-bold leading-snug text-white sm:text-3xl">
-                  Software, electrical &amp; energy systems — designed, built and supported.
-                </p>
-                <p className="text-sm text-neutral-400">Hero image can be set in Admin → Settings → Homepage.</p>
-              </div>
-            )}
+            <Image src={settings.heroImage || "/images/hero.jpg"} alt="Apus Industries at work — engineers, solar design and software" width={1280} height={560} className="h-[320px] w-full object-cover sm:h-[420px]" priority />
             <div className="absolute bottom-4 left-4 flex flex-wrap gap-2">
               {["Software Development", "Electrical & Electronics", "Solar & Energy"].map((t) => (
                 <span key={t} className="rounded-full bg-white/90 px-3 py-1.5 text-xs font-semibold">{t}</span>

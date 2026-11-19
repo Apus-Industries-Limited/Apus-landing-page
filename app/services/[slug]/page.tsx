@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { CheckCircle2, ArrowRight } from "lucide-react";
-import { getServices, getServiceBySlug, getProjects } from "@/lib/data";
+import { getServices, getServiceBySlug, getProjects, serviceCoverImage } from "@/lib/data";
 import { ServiceIcon } from "@/components/site/Cards";
 import { ProjectCard } from "@/components/site/Cards";
 import { CtaBand } from "@/components/site/Sections";
@@ -44,6 +45,11 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
           <Link href={`/contact?service=${encodeURIComponent(service.name)}`} className="mt-8 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-semibold text-white">
             Request this service <ArrowRight className="h-4 w-4" />
           </Link>
+          {serviceCoverImage(service) ? (
+            <div className="relative mt-12 overflow-hidden rounded-2xl bg-ink">
+              <Image src={serviceCoverImage(service)} alt={service.name} width={1280} height={640} className="h-[280px] w-full object-cover sm:h-[380px]" priority />
+            </div>
+          ) : null}
         </div>
       </section>
 

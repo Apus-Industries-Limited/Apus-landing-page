@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
+import Image from "next/image";
 import { Mail, Phone, Clock, MapPin, Linkedin, Instagram, Twitter } from "lucide-react";
 import { getSettings } from "@/lib/settings";
 import { getServices } from "@/lib/data";
@@ -32,6 +33,9 @@ export default async function ContactPage() {
             </Suspense>
           </div>
           <aside className="space-y-4 lg:col-span-2">
+            <div className="relative overflow-hidden rounded-2xl bg-ink">
+              <Image src="/images/contact.jpg" alt="Meeting the Apus Industries team" width={1280} height={960} className="aspect-[4/3] w-full object-cover" />
+            </div>
             <div className="rounded-2xl border border-line p-6">
               <h2 className="font-display text-lg font-bold">Contact details</h2>
               <ul className="mt-4 space-y-4 text-sm">
